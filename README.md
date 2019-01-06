@@ -11,6 +11,6 @@ pip install intelex
 ```python
 import intelex
 
-# Get current SDK versoon
+# Get current SDK version
 intelex.get_version()
 ```
