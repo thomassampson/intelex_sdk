@@ -7,12 +7,7 @@ Intelex
         :target: https://pypi.python.org/pypi/intelex
 
 .. image:: https://img.shields.io/travis/thomassampson/intelex.svg
-        :target: https://travis-ci.org/thomassampson/intelex
-
-.. image:: https://readthedocs.org/projects/intelex/badge/?version=latest
-        :target: https://intelex.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
+        :target: https://travis-ci.org/thomassampson/intelex_sdk
 
 
 
@@ -27,11 +22,3 @@ Features
 --------
 
 * TODO
-
-Credits
--------
-
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
