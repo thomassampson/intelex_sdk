@@ -10,3 +10,4 @@ install:
 
 script:
   - tox -v -e py
+  - python setup.py sdist bdist_wheel
