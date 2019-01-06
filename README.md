@@ -12,5 +12,5 @@ pip install intelex
 import intelex
 
 # Get current SDK versoon
-intelex.version()
+intelex.get_version()
 ```
