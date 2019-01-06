@@ -1,4 +1,4 @@
-* Intelex SDK version:
+* Intelex version:
 * Python version:
 * Operating System:
 

@@ -1,4 +1,4 @@
-Welcome to Intelex SDK's documentation!
+Welcome to Intelex's documentation!
 ======================================
 
 .. toctree::

@@ -5,7 +5,7 @@ Credits
 Development Lead
 ----------------
 
-* Thomas Sampson <thomas.sampson@intelex.com>
+* Thomas Sampson <Thomas.Sampson@intelex.com>
 
 Contributors
 ------------

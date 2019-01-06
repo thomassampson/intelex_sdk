@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use Intelex SDK in a project::
+To use Intelex in a project::
 
-    import intelex_sdk
+    import intelex

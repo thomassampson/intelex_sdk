@@ -8,13 +8,13 @@ Installation
 Stable release
 --------------
 
-To install Intelex SDK, run this command in your terminal:
+To install Intelex, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install intelex_sdk
+    $ pip install intelex
 
-This is the preferred method to install Intelex SDK, as it will always install the most recent stable release.
+This is the preferred method to install Intelex, as it will always install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
@@ -26,19 +26,19 @@ you through the process.
 From sources
 ------------
 
-The sources for Intelex SDK can be downloaded from the `Github repo`_.
+The sources for Intelex can be downloaded from the `Github repo`_.
 
 You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/thomassampson/intelex_sdk
+    $ git clone git://github.com/thomassampson/intelex
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/thomassampson/intelex_sdk/tarball/master
+    $ curl  -OL https://github.com/thomassampson/intelex/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/thomassampson/intelex_sdk
-.. _tarball: https://github.com/thomassampson/intelex_sdk/tarball/master
+.. _Github repo: https://github.com/thomassampson/intelex
+.. _tarball: https://github.com/thomassampson/intelex/tarball/master
