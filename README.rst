@@ -6,7 +6,7 @@ Intelex
 .. image:: https://img.shields.io/pypi/v/intelex.svg
         :target: https://pypi.python.org/pypi/intelex
 
-.. image:: https://img.shields.io/travis/thomassampson/intelex.svg
+.. image:: https://img.shields.io/travis/thomassampson/intelex_sdk.svg
         :target: https://travis-ci.org/thomassampson/intelex_sdk
 
 
