@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/thomassampson/intelex_sdk.svg?branch=master)](https://travis-ci.org/thomassampson/intelex_sdk)
+
 # Intelex Python SDK
 
 ## Installation
