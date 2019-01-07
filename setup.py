@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setup(
     name='intelex',
-    version='0.0.15',
+    version='0.0.16',
     description='Intelex SDK',
     url='https://github.com/thomassampson/intelex_sdk',
     author='Thomas Sampson',
