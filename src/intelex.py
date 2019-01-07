@@ -3,6 +3,16 @@ import os
 import json
 
 
+# Private Functions
+
+def _select_format(select_list):
+    output = ', '
+    output = output.join(select_list)
+    return '{}'.format(output)
+
+
+# Public Functions
+
 def get_version():
     return '0.0.22'
 
@@ -17,7 +27,7 @@ def get_apikey():
     return ilx_apikey
 
 
-def get_records(object):
+def get_records(object, select=None):
     ilx_endpoint = os.environ['ilx_endpoint']
     ilx_apikey = os.environ['ilx_apikey']
     auth_header = 'Basic {}'.format(ilx_apikey)
@@ -26,9 +36,13 @@ def get_records(object):
         'Authorization': auth_header
     }
 
-    query = '{}/api/v2/object/{}'.format(ilx_endpoint, object)
+    if select != None:
+        query = '{}/api/v2/object/{}?$select={}'.format(ilx_endpoint, object, _select_format(select))
+    else:
+        query = '{}/api/v2/object/{}'.format(ilx_endpoint, object)
+    
     response = r.get(query, headers=headers)
-
+    
     return json.loads(response.text)
 
 
@@ -42,6 +56,7 @@ def get_record(object, id):
     }
 
     query = '{}/api/v2/object/{}({})'.format(ilx_endpoint, object, id)
+
     response = r.get(query, headers=headers)
 
     return json.loads(response.text)

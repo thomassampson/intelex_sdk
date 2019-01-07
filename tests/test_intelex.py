@@ -1,4 +1,4 @@
-from intelex import get_version, get_endpoint, get_apikey
+from intelex import get_version, get_endpoint, get_apikey, _select_format
 import os
 
 def test_get_version():
@@ -9,3 +9,7 @@ def test_get_endpoint():
 
 def test_get_aoikey():
     assert get_apikey() == os.environ['ilx_apikey']
+
+def test_select_format():
+    select_list = ['Hello', 'World', 'List']
+    assert _select_format(select_list) == 'Hello, World, List'
