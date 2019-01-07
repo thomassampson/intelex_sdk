@@ -4,7 +4,7 @@ import json
 
 
 def get_version():
-    return '0.0.19'
+    return '0.0.20'
 
 
 def get_records(object):

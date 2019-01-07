@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/thomassampson/intelex_sdk.svg?branch=v0.0.19)](https://travis-ci.org/thomassampson/intelex_sdk) [![PyPI version](https://badge.fury.io/py/intelex.svg)](https://badge.fury.io/py/intelex)
+[![Build Status](https://travis-ci.org/thomassampson/intelex_sdk.svg?branch=v0.0.20)](https://travis-ci.org/thomassampson/intelex_sdk) [![PyPI version](https://badge.fury.io/py/intelex.svg)](https://badge.fury.io/py/intelex)
 
 # Intelex Python SDK
 
