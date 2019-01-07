@@ -22,4 +22,7 @@ setup(
     ],
     long_description=long_desc,
     long_description_content_type='text/markdown',
+    install_requires = [
+        'requests',
+    ],
 )

@@ -26,10 +26,6 @@ import intelex as ilx
 
 # Get current SDK version
 ilx.get_version()
-
-# Echo inputted parameter
-ilx.echo('Hello, World')
-
 ```
 
 ### Object Functions
