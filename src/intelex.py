@@ -7,7 +7,7 @@ ilx_endpoint = os.environ['ilx_endpoint']
 
 
 def get_version():
-    return '0.0.20'
+    return '0.0.21'
 
 def get_endpoint():
     return ilx_endpoint
