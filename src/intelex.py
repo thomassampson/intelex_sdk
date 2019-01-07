@@ -3,8 +3,14 @@ import os
 import json
 
 
+ilx_endpoint = os.environ['ilx_endpoint']
+
+
 def get_version():
     return '0.0.20'
+
+def get_endpoint():
+    return ilx_endpoint
 
 
 def get_records(object):
@@ -61,7 +67,7 @@ def get_related_record(object, id, navigation_property, related_id):
         'Authorization': auth_header
     }
 
-    query = '{}/api/v2/object/{}({})/{}({})'.format(ilx_endpoint, object, id, navigation_property, related)
+    query = '{}/api/v2/object/{}({})/{}({})'.format(ilx_endpoint, object, id, navigation_property, related_id)
     response = r.get(query, headers=headers)
 
     return json.loads(response.text)
