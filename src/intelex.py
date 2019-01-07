@@ -3,14 +3,18 @@ import os
 import json
 
 
-ilx_endpoint = os.environ['ilx_endpoint']
-
-
 def get_version():
     return '0.0.21'
 
+
 def get_endpoint():
+    ilx_endpoint = os.environ['ilx_endpoint']
     return ilx_endpoint
+
+
+def get_apikey():
+    ilx_apikey = os.environ['ilx_apikey']
+    return ilx_apikey
 
 
 def get_records(object):
