@@ -58,7 +58,7 @@ def _generate_query_string(query_string):
 # Public Functions
 
 def get_version():
-    return '0.0.25'
+    return '0.0.26'
 
 
 def get_endpoint():
