@@ -2,7 +2,7 @@
 
 # Intelex Python SDK
 
-## Installation
+## INSTALLATION
 
 ```python
 pip install intelex
@@ -15,4 +15,7 @@ import intelex as ilx
 
 # Get current SDK version
 ilx.get_version()
+
+# Echo inputted parameter
+ilx.echo('Hello, World')
 ```
