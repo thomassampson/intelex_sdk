@@ -7,7 +7,6 @@ install:
 - pip install tox
 script:
 - tox -v -e py
-- python setup.py sdist bdist_wheel
 deploy:
   provider: pypi
   user: thomassampson
