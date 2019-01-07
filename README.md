@@ -43,9 +43,16 @@ related_record_id = '3883f898-f6a3-40c8-be7e-8be000c596c6'
 # Returns all records from an Intelex object that the user is authorized to view
 ilx.get_records(object_name)
 
-# Returns all records from an Intelex object that the user is authorized to view but returns selected fields
-select_list = ['RecordNumber', 'Id']
-ilx.get_records(object_name, select_list)
+# Returns records from an Intelex object that the user is authorized to view based on input parameters in a dictionary
+# Currently supports select, count and pagination (You can add one or many)
+    params = {
+        'select': ['RecordNumber', 'Id'],
+        'count': True,
+        'paginate_top': 50,
+        'paginate_skip': 100
+    }
+
+ilx.get_records(object_name, params)
 
 # Returns an individual record from the Incidents object by referencing the UID of the record
 ilx.get_record(object_name, record_id)
