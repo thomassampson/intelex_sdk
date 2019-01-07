@@ -4,7 +4,7 @@ import json
 
 
 def get_version():
-    return '0.0.21'
+    return '0.0.22'
 
 
 def get_endpoint():
