@@ -13,7 +13,7 @@ pip install intelex
 You must set the following environment variables in order to use the SDK:
 
 1. **ilx_endpoint**: The endpoint of your intelex tenant. Example for if tenant/site is called 'Python': https://clients.intelex.com/Login3/Python
-2. **ilx_endpoint**: The api key for your intelex tenant. Example: dgH67SHvhGhsb7Jsbwe3HnsN6
+2. **ilx_apikey**: The api key for your intelex tenant. Example: dgH67SHvhGhsb7Jsbwe3HnsN6
 
 ## USAGE
 
