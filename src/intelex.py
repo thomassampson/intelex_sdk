@@ -14,7 +14,7 @@ def _select_format(select_list):
 # Public Functions
 
 def get_version():
-    return '0.0.24'
+    return '0.0.25'
 
 
 def get_endpoint():
