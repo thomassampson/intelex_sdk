@@ -44,12 +44,15 @@ related_record_id = '3883f898-f6a3-40c8-be7e-8be000c596c6'
 ilx.get_records(object_name)
 
 # Returns records from an Intelex object that the user is authorized to view based on input parameters in a dictionary
-# Currently supports select, count and pagination (You can add one or many)
+# Currently supports select, count, sort, filter and pagination (You can add one or many)
+
     params = {
         'select': ['RecordNumber', 'Id'],
         'count': True,
         'paginate_top': 50,
-        'paginate_skip': 100
+        'paginate_skip': 100,
+        'sort': ['DateCreated asc'],
+        'filter': 'TaskType eq \'Question\''
     }
 
 ilx.get_records(object_name, params)

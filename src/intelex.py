@@ -26,6 +26,16 @@ def _paginate_skip_format(skip):
     return '$skip={}'.format(skip)
 
 
+def _filter_format(filter_expression):
+    return '$filter={}'.format(filter_expression)
+
+
+def _sort_format(sort_list):
+    output = ', '
+    output = output.join(sort_list)
+    return '$orderby={}'.format(output)
+
+
 def _generate_query_string(query_string):
     
     result = []
@@ -33,27 +43,27 @@ def _generate_query_string(query_string):
     if 'select' in query_string:
         result.append('$select={}'.format(_select_format(query_string['select'])))
 
-    if 'count' in query_string:
-        if query_string['count']:
-            paginate = 'true'
-        else:
-            paginate = 'false'
-        
-        result.append('$count={}'.format(paginate))
+    if 'count' in query_string:      
+        result.append('{}'.format(_count_format(query_string['count'])))
 
     if 'paginate_top' in query_string:
-        result.append('$top={}'.format(query_string['paginate_top']))
+        result.append('{}'.format(_paginate_top_format(query_string['paginate_top'])))
     
     if 'paginate_skip' in query_string:
-        result.append('$skip={}'.format(query_string['paginate_skip']))
+        result.append('{}'.format(_paginate_skip_format(query_string['paginate_skip'])))
+
+    if 'sort' in query_string:
+        result.append('{}'.format(_sort_format(query_string['sort'])))
+
+    if 'filter' in query_string:
+        result.append('{}'.format(_filter_format(query_string['filter'])))
+
 
     output = '&'
     output = output.join(result)
+    
     return '{}'.format(output)
 
-    return output
-
-    
 
 # Public Functions
 
