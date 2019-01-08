@@ -1,8 +1,8 @@
-from intelex import get_version, get_endpoint, get_apikey, _select_format, _count_format, _paginate_top_format, _paginate_skip_format, _generate_query_string, _filter_format, _sort_format
+from intelex import get_sdk_version, get_endpoint, get_apikey, _select_format, _count_format, _paginate_top_format, _paginate_skip_format, _generate_query_string, _filter_format, _sort_format, get_sdk_author
 import os
 
 def test_get_version():
-    assert get_version() == '0.0.27'
+    assert get_sdk_version() == '0.0.27'
 
 def test_get_endpoint():
     assert get_endpoint() == os.environ['ilx_endpoint']
@@ -90,4 +90,8 @@ def test_generate_query_string_filter():
         'filter': 'TaskType eq \'Question\''
     }
     assert _generate_query_string(query_string) == '$filter=TaskType eq \'Question\''
+
+
+def test_get_author():
+    assert get_sdk_author() == 'Thomas Sampson - sampsont91@gmail.com'
     

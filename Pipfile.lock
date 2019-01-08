@@ -181,10 +181,10 @@
         },
         "pkginfo": {
             "hashes": [
-                "sha256:5878d542a4b3f237e359926384f1dde4e099c9f5525d236b1840cf704fa8d474",
-                "sha256:a39076cb3eb34c333a0dd390b568e9e1e881c7bf2cc0aee12120636816f55aee"
+                "sha256:a9621576be8830035a0db1fc50b97bb6153873ec413ea57c1ee73c61208d8419",
+                "sha256:c521b92d4bf9a449b59e6b6319b28a866d2be7bc52b2e5288bb0f9a2520ff7ff"
             ],
-            "version": "==1.4.2"
+            "version": "==1.5.0"
         },
         "pluggy": {
             "hashes": [

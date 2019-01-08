@@ -67,8 +67,14 @@ def _generate_query_string(query_string):
 
 # Public Functions
 
-def get_version():
+## Basic Functions
+
+def get_sdk_version():
     return '0.0.27'
+
+
+def get_sdk_author():
+    return 'Thomas Sampson - sampsont91@gmail.com'
 
 
 def get_endpoint():
@@ -80,6 +86,7 @@ def get_apikey():
     ilx_apikey = os.environ['ilx_apikey']
     return ilx_apikey
 
+## Object Functions
 
 def get_records(object, params=None):
     ilx_endpoint = os.environ['ilx_endpoint']
@@ -144,6 +151,29 @@ def get_related_record(object, id, navigation_property, related_id):
     response = r.get(query, headers=headers)
 
     return json.loads(response.text)
+
+
+def update_record(object, id, data):
+    ilx_endpoint = os.environ['ilx_endpoint']
+    ilx_apikey = os.environ['ilx_apikey']
+    auth_header = 'Basic {}'.format(ilx_apikey)
+
+    headers = {
+        'Authorization': auth_header,
+        'Content-Type': 'application/json'
+    }
+
+    query = '{}/api/v2/object/{}({})'.format(ilx_endpoint, object, id)
+
+    data = json.dumps(data)
+
+    response = r.patch(query, headers=headers, data=data)
+
+    return response.status_code
+
+
+## Workflow Functions
+
 
 
 if __name__ == '__main__':
