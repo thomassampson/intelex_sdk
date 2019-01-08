@@ -70,7 +70,7 @@ def _generate_query_string(query_string):
 ## Basic Functions
 
 def get_sdk_version():
-    return '0.0.27'
+    return '0.0.28'
 
 
 def get_sdk_author():
