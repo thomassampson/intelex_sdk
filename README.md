@@ -89,5 +89,5 @@ data = {
     'CompletionNotes': 'Risk as been corrected by our contractors'
 }
 
-ilx.update_record(object, id, data)
+ilx.update_record(object_name, record_id, data)
 ```
