@@ -2,7 +2,7 @@ from intelex import _expand_format, get_sdk_version, get_endpoint, get_apikey, _
 import os
 
 def test_get_version():
-    assert get_sdk_version() == '0.0.29'
+    assert get_sdk_version() == '0.0.30'
 
 def test_get_endpoint():
     assert get_endpoint() == os.environ['ilx_endpoint']
