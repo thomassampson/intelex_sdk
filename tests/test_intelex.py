@@ -1,4 +1,4 @@
-from intelex import get_sdk_version, get_endpoint, get_apikey, _select_format, _count_format, _paginate_top_format, _paginate_skip_format, _generate_query_string, _filter_format, _sort_format, get_sdk_author
+from intelex import _expand_format, get_sdk_version, get_endpoint, get_apikey, _select_format, _count_format, _paginate_top_format, _paginate_skip_format, _generate_query_string, _filter_format, _sort_format, get_sdk_author
 import os
 
 def test_get_version():
@@ -12,7 +12,7 @@ def test_get_aoikey():
 
 def test_select_format():
     select_list = ['Hello', 'World', 'List']
-    assert _select_format(select_list) == 'Hello, World, List'
+    assert _select_format(select_list) == '$select=Hello, World, List'
 
 def test_count_format_true():
     assert _count_format(True) == '$count=true'
@@ -45,9 +45,23 @@ def test_generate_query_string_all():
         'paginate_top': 50,
         'paginate_skip': 100,
         'sort': ['DateCreated asc'],
-        'filter': 'TaskType eq \'Question\''
+        'filter': 'TaskType eq \'Question\'',
+        'expand': {
+            'CreatedBy': {
+                'select': ['Email'],
+                'sort': ['DateCreated'],
+                'filter': 'Id eq c5b31e68-ad67-4c70-9701-dcbad68088ed'
+            },
+            'ModifiedBy': {
+                'select': ['Email'],
+                'sort': ['DateCreated'],
+                'filter': 'Id eq c5b31e68-ad67-4c70-9701-dcbad68088ed'
+            },
+            'PersonResponsible': {}
+        }
     }
-    assert _generate_query_string(query_string) == '$select=RecordNumber, Id&$count=true&$top=50&$skip=100&$orderby=DateCreated asc&$filter=TaskType eq \'Question\''
+    
+    assert _generate_query_string(query_string) == '$select=RecordNumber, Id&$count=true&$top=50&$skip=100&$orderby=DateCreated asc&$filter=TaskType eq \'Question\'&$expand=CreatedBy($select=Email, $orderby=DateCreated, $filter=Id eq c5b31e68-ad67-4c70-9701-dcbad68088ed),ModifiedBy($select=Email, $orderby=DateCreated, $filter=Id eq c5b31e68-ad67-4c70-9701-dcbad68088ed),PersonResponsible'
 
 
 def test_generate_query_string_select():
@@ -94,4 +108,23 @@ def test_generate_query_string_filter():
 
 def test_get_author():
     assert get_sdk_author() == 'Thomas Sampson - sampsont91@gmail.com'
+
+def test_expand_format():
+    params = {
+        'filter': 'PolbyAutomation eq false',
+        'expand': {
+            'CreatedBy': {
+                'select': ['Email'],
+            },
+            'TargetSite': {
+                'select': ['TenantName']
+            },
+            'TargEnvironment': {
+                'select': ['EnvironmentName']
+            },
+            'TaskType': {}
+        }
+    }
+
+    assert _expand_format(params) == '$expand=CreatedBy($select=Email),TargetSite($select=TenantName),TargEnvironment($select=EnvironmentName),TaskType' 
     

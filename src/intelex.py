@@ -8,7 +8,7 @@ import json
 def _select_format(select_list):
     output = ', '
     output = output.join(select_list)
-    return '{}'.format(output)
+    return '$select={}'.format(output)
 
 
 def _count_format(bool=False):
@@ -36,12 +36,44 @@ def _sort_format(sort_list):
     return '$orderby={}'.format(output)
 
 
+def _expand_format(query_string):
+
+    result = []
+
+    for k in query_string['expand']:
+
+        expand = []
+
+        if query_string['expand'][k]:
+            
+            if 'select' in query_string['expand'][k]:
+                expand.append('{}'.format(_select_format(query_string['expand'][k]['select'])))
+
+            if 'sort' in query_string['expand'][k]:
+                expand.append('{}'.format(_sort_format(query_string['expand'][k]['sort'])))
+
+            if 'filter' in query_string['expand'][k]:
+                expand.append('{}'.format(_filter_format(query_string['expand'][k]['filter'])))
+            
+            output = ', '
+            output = output.join(expand)
+            result.append('{}({})'.format(k, output))
+
+        else:
+            result.append(k)
+
+    output = ','
+    output = output.join(result)    
+    
+    return '$expand={}'.format(output)
+
+
 def _generate_query_string(query_string):
     
     result = []
 
     if 'select' in query_string:
-        result.append('$select={}'.format(_select_format(query_string['select'])))
+        result.append('{}'.format(_select_format(query_string['select'])))
 
     if 'count' in query_string:      
         result.append('{}'.format(_count_format(query_string['count'])))
@@ -58,6 +90,8 @@ def _generate_query_string(query_string):
     if 'filter' in query_string:
         result.append('{}'.format(_filter_format(query_string['filter'])))
 
+    if 'expand' in query_string:
+        result.append('{}'.format(_expand_format(query_string)))
 
     output = '&'
     output = output.join(result)
