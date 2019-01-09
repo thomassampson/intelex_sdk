@@ -48,6 +48,7 @@ object_name = 'IncidentsObject'
 record_id = 'd0bf1ab9-6ff8-4362-8620-11cd74adb30a'
 related_record_name = 'SubIncidents'
 related_record_id = '3883f898-f6a3-40c8-be7e-8be000c596c6'
+action_id = '6c10e61f-e819-4640-bcc8-204577f2e710'
 
 # Returns all records from an Intelex object that the user is authorized to view
 ilx.get_records(object_name)
@@ -90,4 +91,23 @@ data = {
 }
 
 ilx.update_record(object_name, record_id, data)
+
+# This request allows you to retrieve the workflow information for a given record.
+ilx.get_workflow(object_name, record_id)
+
+# This request allows you to retrieve the information about the workflow status that the record is currently in.
+ilx.get_workflow_status(object_name, record_id)
+
+# This request allows you to retrieve the information about the workflow stage that the record is currently in.
+ilx.get_workflow_stage(object_name, record_id)
+
+# This request allows you to retrieve the information about the workflow stage actions available for a record in the current stage. 
+ilx.get_workflow_stage_actions(object_name, record_id)
+
+# This request allows you to retrieve the individual assigned to the workflow stage of the record.
+ilx.get_workflow_person(object_name, record_id)
+
+# This request allows you to push a record through its workflow stages.
+ilx.execute_workflow_stage_action(object_name, record_id, action_id)
+
 ```

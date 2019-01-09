@@ -120,6 +120,7 @@ def get_apikey():
     ilx_apikey = os.environ['ilx_apikey']
     return ilx_apikey
 
+
 ## Object Functions
 
 def get_records(object, params=None):
@@ -206,8 +207,118 @@ def update_record(object, id, data):
     return response.status_code
 
 
+def delete_record(object, id):
+    ilx_endpoint = os.environ['ilx_endpoint']
+    ilx_apikey = os.environ['ilx_apikey']
+    auth_header = 'Basic {}'.format(ilx_apikey)
+
+    headers = {
+        'Authorization': auth_header
+    }
+
+    query = '{}/api/v2/object/{}({})'.format(ilx_endpoint, object, id)
+
+    response = r.delete(query, headers=headers)
+
+    return response.status_code
+
+
 ## Workflow Functions
 
+def get_workflow(object, id):
+    ilx_endpoint = os.environ['ilx_endpoint']
+    ilx_apikey = os.environ['ilx_apikey']
+    auth_header = 'Basic {}'.format(ilx_apikey)
+
+    headers = {
+        'Authorization': auth_header
+    }
+
+    query = '{}/api/v2/object/{}({})/Workflow'.format(ilx_endpoint, object, id)
+
+    response = r.get(query, headers=headers)
+
+    return json.loads(response.text)
+
+
+def get_workflow_status(object, id):
+    ilx_endpoint = os.environ['ilx_endpoint']
+    ilx_apikey = os.environ['ilx_apikey']
+    auth_header = 'Basic {}'.format(ilx_apikey)
+
+    headers = {
+        'Authorization': auth_header
+    }
+
+    query = '{}/api/v2/object/{}({})/Workflow/Status'.format(ilx_endpoint, object, id)
+
+    response = r.get(query, headers=headers)
+
+    return json.loads(response.text)
+
+
+def get_workflow_stage(object, id):
+    ilx_endpoint = os.environ['ilx_endpoint']
+    ilx_apikey = os.environ['ilx_apikey']
+    auth_header = 'Basic {}'.format(ilx_apikey)
+
+    headers = {
+        'Authorization': auth_header
+    }
+
+    query = '{}/api/v2/object/{}({})/Workflow/CurrentStage'.format(ilx_endpoint, object, id)
+
+    response = r.get(query, headers=headers)
+
+    return json.loads(response.text)
+
+
+def get_workflow_stage_actions(object, id):
+    ilx_endpoint = os.environ['ilx_endpoint']
+    ilx_apikey = os.environ['ilx_apikey']
+    auth_header = 'Basic {}'.format(ilx_apikey)
+
+    headers = {
+        'Authorization': auth_header
+    }
+
+    query = '{}/api/v2/object/{}({})/Workflow/CurrentStage/Actions'.format(ilx_endpoint, object, id)
+
+    response = r.get(query, headers=headers)
+
+    return json.loads(response.text)
+
+
+def get_workflow_person(object, id):
+    ilx_endpoint = os.environ['ilx_endpoint']
+    ilx_apikey = os.environ['ilx_apikey']
+    auth_header = 'Basic {}'.format(ilx_apikey)
+
+    headers = {
+        'Authorization': auth_header
+    }
+
+    query = '{}/api/v2/object/{}({})/Workflow/PersonResponsible'.format(ilx_endpoint, object, id)
+
+    response = r.get(query, headers=headers)
+
+    return json.loads(response.text)
+
+
+def execute_workflow_stage_action(object, id, action_id):
+    ilx_endpoint = os.environ['ilx_endpoint']
+    ilx_apikey = os.environ['ilx_apikey']
+    auth_header = 'Basic {}'.format(ilx_apikey)
+
+    headers = {
+        'Authorization': auth_header
+    }
+
+    query = '{}/api/v2/object/{}({})/Workflow/CurrentStage/Actions({})/Action.ExecuteStageAction'.format(ilx_endpoint, object, id, action_id)
+
+    response = r.post(query, headers=headers)
+
+    return response.status_code
 
 
 if __name__ == '__main__':
